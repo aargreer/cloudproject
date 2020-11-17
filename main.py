@@ -1,31 +1,16 @@
 from typing import Text
 from flask import Flask, render_template , request ,flash
 from model import read
-import os
-import argparse
-import subprocess
-import logging
-from flask import Flask, request, jsonify, render_template, url_for, flash, redirect
-from werkzeug.exceptions import abort
-from flask_cors import CORS
-
-import signal
-import datetime
-import sys
-import shlex
-
-
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    
- return render_template('base2.html')
+ return render_template('index.html')
 
 @app.route('/about')
 def about():
- return render_template('group.html')
+ return render_template('about.html')
 
 #inference
 @app.route('/inference', methods=['POST', 'GET'])
@@ -39,11 +24,11 @@ def inference():
         children = request.form['kid']
 
         if not sex:
-            flash('enter male or female')
+            flash('enter sex male or female')
         else:
             expense = read(sex,smoker,region,age, bmi,children)
-            return render_template('inter.html',expense = expense)
-    return render_template('inter.html')
+            return render_template('inference.html',expense = expense)
+    return render_template('inference.html')
 
 if __name__ == "__main__":    
       app.run(debug=True, host='0.0.0.0', port=8080)
