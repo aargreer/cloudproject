@@ -8,7 +8,7 @@ ENV VIRTUAL_ENV /env
 ENV PATHpip3 install --upgrade virtualenv && \
             virtualenv /env -p python3 /env/bin:$PATH
 
- ADD main.py /
+ADD main.py /
 
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
