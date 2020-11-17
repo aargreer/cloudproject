@@ -4,8 +4,9 @@ COPY . .
 
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-RUN baseline.py
 
 EXPOSE 8080
+
+CMD ["python", "baseline.py"]
 
 CMD ["python", "main.py"]
