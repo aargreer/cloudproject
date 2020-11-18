@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.ensemble import ExtraTreesRegressor
 
 insurance_data=pd.read_csv('data/insurance.csv')
-
+	#transform categorical data
 le_sex = LabelEncoder()
 le_smoker = LabelEncoder()
 le_region = LabelEncoder()
@@ -13,11 +13,9 @@ insurance_data['sex'] = le_sex.fit_transform(insurance_data['sex'])
 insurance_data['smoker'] = le_smoker.fit_transform(insurance_data['smoker'])
 insurance_data['region'] = le_region.fit_transform(insurance_data['region'])
 
-
 def read(sex, y_n, location, age, bmi, kids):
 	print('Model training and evaluating\n\n')
-	#transform categorical data
-	
+
 	
 	variables = ['sex','smoker','region','age','bmi','children']
 	
@@ -37,6 +35,7 @@ def read(sex, y_n, location, age, bmi, kids):
 	y_test_pred = regressor.predict(X_test)
 	
 	print('Predicting on new data\n\n')
+	
 
 	
 	user = [ sex, y_n, location,int(age),float(bmi), int(kids)]
@@ -54,8 +53,6 @@ def read(sex, y_n, location, age, bmi, kids):
 	finalcost = []
 	finalcost = "{:.2f}".format(cost_for_user)
 	return finalcost
-print("clearing user value$$$")
-user = []
 
 	
 
