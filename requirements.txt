@@ -6,3 +6,5 @@ statsmodels
 flask
 flask_cors
 gunicorn
+mysql
+mysql.connector

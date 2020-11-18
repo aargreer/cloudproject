@@ -60,7 +60,7 @@ def inference():
             'ssl_ca': 'ssl/server-ca.pem',
             'ssl_cert': 'ssl/client-cert.pem',
             'ssl_key': 'ssl/client-key.pem'
-                        }
+            }
         # now we establish our connection
             with sql.connect(**config) as cnx:
                         cur = cnx.cursor() # initialize connection cursor
